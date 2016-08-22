@@ -30,18 +30,31 @@ namespace Service.Controllers
         }
 
         // POST: api/Service
-        public void Post([FromBody]string value)
+        public bool Post(List<ShopHistory> shoppingList)
         {
+            try
+            {
+                using (ShopContext context = new ShopContext())
+                {
+                    context.ShopHistory.AddRange(shoppingList);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         // PUT: api/Service/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
 
         // DELETE: api/Service/5
-        public void Delete(int id)
-        {
-        }
+        //public void Delete(int id)
+        //{
+        //}
     }
 }
