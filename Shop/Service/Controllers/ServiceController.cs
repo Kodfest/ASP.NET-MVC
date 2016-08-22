@@ -34,6 +34,7 @@ namespace Service.Controllers
         {
             try
             {
+                //throw new Exception();
                 using (ShopContext context = new ShopContext())
                 {
                     context.ShopHistory.AddRange(shoppingList);

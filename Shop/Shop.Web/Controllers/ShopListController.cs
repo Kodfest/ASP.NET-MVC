@@ -53,7 +53,7 @@ namespace Shop.Web.Controllers
                     var data = JsonConvert.SerializeObject(shopList);
                     HttpContent content = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
                     var returnResult = await client.PostAsync("http://localhost:14313/api/service", content);
-                    
+                    result = bool.Parse(returnResult.Content.ReadAsStringAsync().Result);
                 }
             }
 
