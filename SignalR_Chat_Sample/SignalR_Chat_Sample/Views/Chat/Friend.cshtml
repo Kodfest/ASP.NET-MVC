@@ -10,27 +10,38 @@
     <meta name="viewport" content="width=device-width" />
     <title>Friend</title>
 
+    <!-- SignalR Script-->
+    <script src="~/Scripts/jquery-1.6.4.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="~/SignalR/Hubs"></script>
+    <!-- SignalR Script-->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
 </head>
-<body>
-    <div class="container">
-        <ul id="incomingChatMessages">
-            <li>
-                <div class="avatar"><img src="http://www.gravatar.com/avatar/1.png"></div>
-                <div class="msgWrap me">
-                    <div class="user">Presto</div>
-                    <div class="msg">Hello Alexis</div>
+<body style="margin: 20px;">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <div class="chat-panel panel panel-default">
+            <div class="panel-heading">
+                @Html.TextBox("txtUsername", null, new { @class = "form-control input-sm", @style = "", @placeholder = "Your Name" })
+            </div>
+
+            <div class="panel-body">
+                <ul class="chat" id="messages"></ul>
+            </div>
+
+            <div class="panel-footer">
+                <div class="input-group">
+                    @Html.TextBox("txtMessage", null, new { @class = "form-control input-sm", @style = "", @placeholder = "Your Message..." })
+                    <span class="input-group-btn">
+                        <button class="btn btn-warning btn-sm" id="btnSendMessage">
+                            Send
+                        </button>
+                    </span>
                 </div>
-                <div class="time"><i class="glyphicon glyphicon-time"></i> about 21 min ago</div>
-            </li>
-            <li>
-                <div class="avatar"><img src="http://www.gravatar.com/avatar/1.png"></div>
-                <div class="msgWrap">
-                    <div class="user">Alexis</div>
-                    <div class="msg">Hey Presto, how are you?</div>
-                </div>
-                <div class="time"><i class="glyphicon glyphicon-time"></i> about 19 min ago</div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
+    <div class="col-lg-3"></div>
 </body>
 </html>
